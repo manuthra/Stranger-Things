@@ -14,7 +14,7 @@ function Hero() {
             }}
         >
 
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="relative z-10 flex flex-col items-center">
 
