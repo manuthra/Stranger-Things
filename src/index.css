@@ -1,0 +1,268 @@
+@import 'tailwindcss';
+
+body {
+  background: black;
+  overflow-x: hidden;
+}
+
+@keyframes flickerGlow {
+
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 10px rgb(86, 6, 6)) drop-shadow(0 0 20px rgb(98, 13, 13));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 2px rgb(157, 5, 5)) drop-shadow(0 0 5px rgb(246, 4, 4));
+  }
+
+}
+
+.logo-flicker {
+
+  animation: flickerGlow 2s ease-in-out;
+
+}
+
+.snow {
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+
+  background-size:
+    200px 200px,
+    150px 150px,
+    250px 250px;
+
+  background-position:
+    0 0,
+    40px 60px,
+    130px 270px;
+
+  animation: snowMove 12s linear infinite;
+
+  opacity: 0.5;
+
+  pointer-events: none;
+}
+
+@keyframes snowMove {
+
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(100px);
+  }
+
+}
+
+@keyframes flickerBlink {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  82% {
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 0 30px red;
+  }
+
+  83% {
+    opacity: 0.2;
+  }
+
+  84% {
+    opacity: 1;
+    box-shadow: 0 0 45px red;
+  }
+
+  85% {
+    opacity: 0.3;
+  }
+
+  86% {
+    opacity: 1;
+    box-shadow: 0 0 25px red;
+  }
+
+}
+
+.letter-active {
+  animation: flickerBlink 5s infinite;
+}
+
+.glitch {
+  position: relative;
+  color: rgb(218, 17, 17);
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-shadow: 0 0 5px rgb(112, 3, 3), 0 0 10px rgb(28, 22, 22), 0 0 20px red;
+  animation: flicker 3s 1;
+}
+
+.glitch::before,
+.glitch::after {
+
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+  width: 100%;
+
+}
+
+.glitch::before {
+  color: #ff3300;
+  z-index: -1;
+  opacity: 0;
+  animation: glitchTop 3s linear alternate-reverse;
+}
+
+.glitch::after {
+  display: none;
+}
+
+@keyframes glitchTop {
+  0% {
+    transform: translate(0);
+    clip-path: inset(0 0 85% 0);
+  }
+
+  10% {
+    transform: translate(-2px, -2px);
+  }
+
+  20% {
+    transform: translate(2px, 2px);
+    clip-path: inset(10% 0 70% 0);
+  }
+
+  30% {
+    transform: translate(-4px, 1px);
+  }
+
+  40% {
+    transform: translate(3px, -2px);
+    clip-path: inset(40% 0 30% 0);
+  }
+
+  50% {
+    transform: translate(-1px, 3px);
+  }
+
+  60% {
+    transform: translate(2px, -1px);
+    clip-path: inset(60% 0 15% 0);
+  }
+
+  70% {
+    transform: translate(-3px, 2px);
+  }
+
+  80% {
+    transform: translate(1px, -3px);
+    clip-path: inset(20% 0 50% 0);
+  }
+
+  90% {
+    transform: translate(3px, 1px);
+  }
+
+  100% {
+    transform: translate(0);
+    clip-path: inset(0 0 85% 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    transform: translate(0);
+    clip-path: inset(85% 0 0 0);
+  }
+
+  10% {
+    transform: translate(2px, 2px);
+  }
+
+  20% {
+    transform: translate(-2px, -1px);
+    clip-path: inset(70% 0 10% 0);
+  }
+
+  30% {
+    transform: translate(3px, -2px);
+  }
+
+  40% {
+    transform: translate(-4px, 1px);
+    clip-path: inset(30% 0 40% 0);
+  }
+
+  50% {
+    transform: translate(1px, -3px);
+  }
+
+  60% {
+    transform: translate(-2px, 2px);
+    clip-path: inset(15% 0 60% 0);
+  }
+
+  70% {
+    transform: translate(3px, -1px);
+  }
+
+  80% {
+    transform: translate(-1px, 3px);
+    clip-path: inset(50% 0 20% 0);
+  }
+
+  90% {
+    transform: translate(-3px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+    clip-path: inset(85% 0 0 0);
+  }
+}
+
+@keyframes flicker {
+
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  24%,
+  55% {
+    opacity: 0.3;
+  }
+
+  21%,
+  56% {
+    opacity: 0.8;
+  }
+}
