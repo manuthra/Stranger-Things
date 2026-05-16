@@ -18,7 +18,7 @@ function Hero() {
 
             <div className="relative z-10 flex flex-col items-center">
 
-                <img src={logo} alt="logo" className="w-[280px] md:w-[450px] lg:w-[650px] object-contain drop-shadow-[0_0_30px_red] logo-flicker"
+                <img src={logo} alt="logo" className="w-[280px] md:w-[450px] lg:w-[650px] object-contain drop-shadow-[0_0_50px_red] logo-flicker"
                 />
 
             <div className = "mt-10 flex  md:flex-row gap-3 md:gap-5">
